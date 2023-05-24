@@ -3,7 +3,7 @@
 }
 
 #header .profile .social-links a.github {
-    background-image: url(/assets/img/testimonials/github.png);
+    background-image: url(/assets/img/github.png);
     background-size: contain;
 }
 
@@ -11,7 +11,7 @@
     color: #fff;
     text-decoration: none;
     background-color: #149ddd;
-    background-image: url(/assets/img/testimonials/github.png);
+    background-image: url(/assets/img/github.png);
     background-size: contain;
 }
 
