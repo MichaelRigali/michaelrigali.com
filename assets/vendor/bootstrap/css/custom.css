@@ -18,3 +18,8 @@
 span2 {
     color: #149ddd;
 }
+
+.portfolio-item-title {
+    font-size: 30px;
+    text-align: center;
+}
