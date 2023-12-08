@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio Details - iPortfolio Bootstrap Template</title>
+  <title>Portfolio Details</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -23,17 +23,10 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/custom.css">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -46,25 +39,22 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Alex Smith</a></h1>
+        <img src="./assets/img/portfolio/jump.png" alt="" class="img-fluid rounded-circle">
+        <h1 class="text-light"><a href="index.html">Michael <span2>Rigali</span2></a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <div><a href="https://github.com/MichaelRigali" class="github" target="_blank"></a></div>
+          <a href="https://www.facebook.com/michael.rigali.73/" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.linkedin.com/in/michael-richard-rigali/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
         </div>
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a href="index.html" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="index.html#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+          <li><a href="index.html#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+          <li><a href="index.html#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+          <li><a href="index.html#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>
@@ -77,10 +67,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Portfoio Details</h2>
+          <h2>Crypto Trading Bot Details</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Portfoio Details</li>
+            <li>Details</li>
           </ol>
         </div>
 
@@ -88,7 +78,7 @@
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Portfolio Details Section ======= -->
-    <section id="portfolio-details" class="portfolio-details">
+    <section id="portfolio-details" class="portfolio-details" style="background: #f5f8fd;">
       <div class="container">
 
         <div class="row gy-4">
@@ -96,38 +86,49 @@
           <div class="col-lg-8">
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
-
+                
                 <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-1.jpg" alt="">
+                  <div class="trade">
+                    <img src="assets/img/portfolio/traderpic1.png" alt="">
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/traderpic2.png" alt="">
                 </div>
 
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
-                </div>
 
               </div>
               <div class="swiper-pagination"></div>
+              <div class="portfolio-description">
+                <h2>Skills Involved</h2>
+                <p>
+                  The design and implementation of this program required: 
+                </p>
+                <ul>
+                  <li>Automates Crypto Trading Strategies on Binance & Bitmex.</li>
+                  <li>Created Personal Trading Dashboard (GUI).</li>
+                  <li>Algorithmic trading concepts, strategies, and application.</li>
+                  <li>Demonstrates proficiency with Python, REST, API integration.</li>
+                </ul>
+              </div>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Project information</h3>
+              <h3>Description</h3>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                <li><strong>Category</strong>: Lifestyle</li>
+                <li><strong>Language</strong>: JavaScript</li>
+                <li><strong>Course</strong>: N/A</li>
+                <li><strong>Project Code</strong>: <a href="https://github.com/MichaelRigali/TradingBot.git">Download Here</a></li>
               </ul>
             </div>
-            <div class="portfolio-description">
-              <h2>This is an example of portfolio detail</h2>
+            <div class="portfolio-info">
+              <h3>About The Program</h3>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                After feeling the effects of burn out, imposter syndrome, and discouraged from the current job market for entry level SWEs, I decided to make this project as a means of having fun with coding again!
+                It has revitalized my resolve, and I learned a lot about REST APIs and sharpened my Python skill set. 
               </p>
             </div>
           </div>
