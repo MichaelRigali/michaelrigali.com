@@ -340,6 +340,11 @@ section {
   color: #173b6c;
 }
 
+.emphasis {
+  color: #173b6c;
+  font-weight: bold;
+}
+
 .about .content ul {
   list-style: none;
   padding: 0;
