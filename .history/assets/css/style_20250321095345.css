@@ -1202,13 +1202,13 @@ section {
 
 .fixed-swiper-slide {
   width: 100%;
-  height: 400px;
-  /* Optionally set a background color to see letterboxing more clearly */
-  background-color: #0e2442;
+  max-height: 400px; /* Let the slide shrink or grow but cap it at 400px */
+  overflow: hidden;   /* In case something exceeds 400px */
 }
 
 .fixed-swiper-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Shows the entire image, won't zoom in */
+  max-height: 100%;
+  width: auto;
+  display: block;
+  margin: 0 auto; /* Center horizontally */
 }
