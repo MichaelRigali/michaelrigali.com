@@ -275,7 +275,7 @@
         element.classList.add('fade-in'); // e.g. toggles CSS that transitions opacity from 0 to 1
       }, delay);
       // Increase delay by 2 seconds (2000 ms) per element
-      delay += 1500;
+      delay += 2000;
     });
   });
 
