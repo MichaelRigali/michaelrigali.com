@@ -1230,30 +1230,19 @@ section {
   object-fit: contain; /* Shows the entire image, won't zoom in */
 }
 
-.skills .progress-bar.lang-bar {
+/* Unique colors for each skill section */
+.lang-bar {
   background-color: #1abc9c; /* Teal for Languages */
 }
 
-.skills .progress-bar.fw-bar {
+.fw-bar {
   background-color: #9b59b6; /* Purple for Frameworks/Libraries */
 }
 
-.skills .progress-bar.tool-bar {
+.tool-bar {
   background-color: #e67e22; /* Orange for Tools/Technologies */
 }
 
-.skills .progress-bar.db-bar {
+.db-bar {
   background-color: #2980b9; /* Blue for Databases */
-}
-
-.skills-heading.lang { color: #1abc9c; }
-.skills-heading.fw   { color: #9b59b6; }
-.skills-heading.tool { color: #e67e22; }
-.skills-heading.db   { color: #2980b9; }
-
-.skills-heading {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-family: "Poppins", sans-serif;
 }

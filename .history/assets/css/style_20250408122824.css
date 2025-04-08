@@ -1250,10 +1250,3 @@ section {
 .skills-heading.fw   { color: #9b59b6; }
 .skills-heading.tool { color: #e67e22; }
 .skills-heading.db   { color: #2980b9; }
-
-.skills-heading {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-family: "Poppins", sans-serif;
-}
