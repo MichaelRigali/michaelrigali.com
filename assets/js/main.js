@@ -279,4 +279,138 @@
     });
   });
 
+  /**
+   * ------------------------------------------------------------------
+   *         LOADING ANIMATION LOGIC
+   * ------------------------------------------------------------------
+   */
+  
+  // Initialize loading animation
+  function initLoadingAnimation() {
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const body = document.body;
+    const heroVideo = document.getElementById('hero-video');
+    
+    // Add loading class to body to prevent scrolling
+    body.classList.add('loading');
+    
+    // Set a minimum loading time to ensure the animation is visible
+    const minLoadingTime = 3000; // 3 seconds minimum
+    const startTime = Date.now();
+    
+    // Track if video is ready
+    let videoReady = false;
+    let videoPlaying = false;
+    
+    // Function to handle video loading and show it when ready
+    function handleVideoReady() {
+      if (heroVideo && !videoReady) {
+        videoReady = true;
+        console.log('Video ready - adding ready class');
+        
+        // Add the 'ready' class to trigger the CSS transition
+        heroVideo.classList.add('ready');
+        
+        // Add video-ready class to hero section to fade out fallback background
+        const heroSection = document.getElementById('hero');
+        if (heroSection) {
+          heroSection.classList.add('video-ready');
+        }
+        
+        // Ensure video is playing
+        if (heroVideo.paused) {
+          heroVideo.play().then(() => {
+            videoPlaying = true;
+            console.log('Video started playing successfully');
+          }).catch(e => {
+            console.log('Video autoplay failed:', e);
+            // Even if autoplay fails, we still show the video
+            videoPlaying = true;
+          });
+        } else {
+          videoPlaying = true;
+          console.log('Video was already playing');
+        }
+      }
+    }
+    
+    // Preload video immediately when function starts
+    if (heroVideo) {
+      // Force video to start loading
+      heroVideo.load();
+      
+      // Add event listeners for video readiness
+      heroVideo.addEventListener('canplaythrough', handleVideoReady, { once: true });
+      heroVideo.addEventListener('loadeddata', handleVideoReady, { once: true });
+      heroVideo.addEventListener('canplay', handleVideoReady, { once: true });
+    }
+    
+    // Function to check if we can proceed with hiding the overlay
+    function canHideOverlay() {
+      return videoReady && (videoPlaying || heroVideo.readyState >= 3);
+    }
+    
+    // Function to hide loading overlay
+    function hideLoadingOverlay() {
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+      
+      setTimeout(() => {
+        // First, ensure video is ready
+        if (heroVideo) {
+          // Check if video is already loaded enough to play
+          if (heroVideo.readyState >= 3) { // HAVE_FUTURE_DATA
+            handleVideoReady();
+          } else {
+            // Video is still loading, but we already added event listeners above
+            // Fallback: if video takes too long, show it anyway after 3 seconds
+            setTimeout(() => {
+              if (!videoReady) {
+                handleVideoReady();
+              }
+            }, 3000);
+          }
+        }
+        
+        // Wait for video to be ready before fading out loading overlay
+        function checkAndHide() {
+          if (canHideOverlay()) {
+            console.log('Video ready and playing - starting video fade-in');
+            
+            // First, make the video visible
+            handleVideoReady();
+            
+            // Wait for video to be fully visible before hiding loading overlay
+            setTimeout(() => {
+              console.log('Video should be visible now - hiding loading overlay');
+              loadingOverlay.classList.add('fade-out');
+              
+                              // Remove loading class from body after fade out
+                setTimeout(() => {
+                  body.classList.remove('loading');
+                  loadingOverlay.style.display = 'none';
+                }, 800); // Match the CSS transition duration
+            }, 1000); // Wait 1 second for video to start fading in
+          } else {
+            // Check again in 100ms
+            setTimeout(checkAndHide, 100);
+          }
+        }
+        
+        // Start checking after a short delay
+        setTimeout(checkAndHide, 200);
+      }, remainingTime);
+    }
+    
+    // Hide loading overlay when page is fully loaded
+    if (document.readyState === 'complete') {
+      hideLoadingOverlay();
+    } else {
+      window.addEventListener('load', hideLoadingOverlay);
+    }
+  }
+  
+  // Start loading animation immediately when script loads
+  initLoadingAnimation();
+
 })();
