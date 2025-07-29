@@ -94,7 +94,7 @@
 
   <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-  <video autoplay loop muted playsinline preload="auto" id="hero-video" poster="assets/img/nasa.jpg">
+  <video loop muted playsinline preload="auto" id="hero-video" poster="assets/img/nasa.jpg">
     <source src="assets/css/4K Planet Earth Spinning in Space   Free HD Videos - No Copyright.2160p.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -102,15 +102,15 @@
   <!-- Remove data-aos="fade-in" from the line below -->
   <div class="hero-container">
     <div class="heroworld">
-      <!-- Add IDs and a fade-sequence class to each line -->
-      <h3 id="hello-world" class="fade-sequence">Hello <span2>World!</span2></h3>
-      <h4 id="the-name-is-rigali" class="fade-sequence">The name is <span2>Rigali...</span2></h4>
+      <!-- Add hero-title class to each line -->
+      <h3 id="hello-world" class="hero-title">Hello <span2>World!</span2></h3>
+      <h4 id="the-name-is-rigali" class="hero-title">The name is <span2>Rigali...</span2></h4>
     </div>
 
-    <h1 id="michael-rigali" class="fade-sequence">Michael <span2>Rigali</span2></h1>
+    <h1 id="michael-rigali" class="hero-title">Michael <span2>Rigali</span2></h1>
 
-    <!-- Add fade-sequence to the parent <p> of the typed text -->
-    <p id="typed-text" class="fade-sequence">
+    <!-- Add hero-title class to the parent <p> of the typed text -->
+    <p id="typed-text" class="hero-title">
       I'm a <span class="typed" data-typed-items="Programmer, Software Engineer, Entrepreneur, Software Developer"></span>
     </p>
   </div>
@@ -503,6 +503,30 @@
             <div class="swiper-slide">
               <div class="testimonial-item" data-aos="fade-up">
                 <p>
+                  "Michael was an especially effective collaborator on a website design for a Baltimore MD local group. He impressed me with his professionalism and aesthetic eye. A true team player for frontend design."
+                </p>
+                <img src="assets/img/julian.jpg" class="testimonial-img" alt="">
+                <h3>Julian Loiacono</h3>
+                <h4>Code & Coffee Organizer</h4>
+                <h4><a href="https://www.linkedin.com/in/julian-loiacono/" target="_blank">Contact Here</a></h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
+                <p>
+                  "Michael was an outstanding leader and SCRUM master during our senior capstone project. He kept the team on track, motivated, and consistently went above and beyond in driving our success."
+                </p>
+                <img src="assets/img/mike.jpg" class="testimonial-img" alt="">
+                <h3>Mike Topp</h3>
+                <h4>Eng III Cslt-Data Scientist @ Verizon</h4>
+                <h4><a href="https://www.linkedin.com/in/mike-topp/" target="_blank">Contact Here</a></h4>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
+                <p>
                   "Michael has been helpful in Open Sourcerer's JavaScript documentation and has worked effectively with
                   React. I look forward to seeing him continue to develop as a future SWE."
                 </p>
@@ -513,8 +537,9 @@
                 </h4>
               </div>
             </div><!-- End testimonial item -->
+
             <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
                 <p>
                   "Michael has sound clinical judgement, excellent communication skills, and was a valuable asset to our
                   team while he worked at Saint Elizabeth Rehabilitation with Assisted Rehab."
@@ -527,7 +552,7 @@
             </div><!-- End testimonial item -->
 
             <div class="swiper-slide">
-              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
                 <p>
                   "As a former student of Mike's, I can say he helped me improve my Academic Writing and Research skills
                   significantly. His approach to tutoring was flexible and personable."
@@ -539,10 +564,20 @@
               </div>
             </div><!-- End testimonial item -->
 
-
-
           </div>
-          <div class="swiper-pagination"></div>
+          
+          <!-- Professional Navigation Buttons -->
+          <div class="swiper-button-prev testimonials-nav-btn">
+            <i class="bi bi-chevron-left"></i>
+          </div>
+          <div class="swiper-button-next testimonials-nav-btn">
+            <i class="bi bi-chevron-right"></i>
+          </div>
+          
+          <!-- Testimonial Counter -->
+          <div class="testimonial-counter">
+            <span class="current-slide">1</span> / <span class="total-slides">5</span>
+          </div>
         </div>
 
       </div>
@@ -683,6 +718,34 @@
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+      });
+      
+      // Testimonials Slider Configuration
+      var testimonialsSwiper = new Swiper('.testimonials-slider', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: false, // Disable loop for manual navigation
+        autoplay: false, // Disable auto-scroll
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on: {
+          init: function () {
+            // Initialize counter
+            const currentSlide = this.realIndex + 1;
+            const totalSlides = this.slides.length;
+            document.querySelector('.current-slide').textContent = currentSlide;
+            document.querySelector('.total-slides').textContent = totalSlides;
+          },
+          slideChange: function () {
+            // Update counter
+            const currentSlide = this.realIndex + 1;
+            const totalSlides = this.slides.length;
+            document.querySelector('.current-slide').textContent = currentSlide;
+            document.querySelector('.total-slides').textContent = totalSlides;
+          }
+        }
       });
     });
 
